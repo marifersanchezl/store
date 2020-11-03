@@ -1,0 +1,7 @@
+ToDo List
+Home page: The most popular products of the website are displayed.
+Products: All products are displayed, as well as their variants.
+Shopping Cart: Its content varies depending on the user, here are the chosen products, as well as their prices and the total cost of the cart.
+Payment: User data is displayed here: delivery address, address of billing, name of who receives. There is also the option to select the payment method and shipping method. To get to this page you have to do a checkout from the cart.
+Thank you for your purchase: The user is thanked for his purchase and given the option to return to the home page to continue shopping.
+About us: The vision and mission of the business are shown here.
