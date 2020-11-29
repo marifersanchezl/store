@@ -1,33 +1,33 @@
+const { render } = require('ejs');
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
 router.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname, "pages/home.html"));
+  res.render('home');
 });
 
 router.get("/login", function(req, res) {
-  res.sendFile(path.join(__dirname, "pages/signin.html"));
+  res.render('signin');
 });
 
 router.get("/register", function(req, res) {
-  res.sendFile(path.join(__dirname, "pages/register.html"));
+  res.render('register');
 });
 
 router.get("/product", function(req, res) {
-  res.sendFile(path.join(__dirname, "pages/product.html"));
+  res.render('product');
 });
 
 router.get("/productsAll", function(req, res) {
-  res.sendFile(path.join(__dirname, "pages/productsAll.html"));
+  res.render('productsAll');
 });
 
 router.get("/checkout", function(req, res) {
-  res.sendFile(path.join(__dirname, "pages/checkout.html"));
+  res.render('checkout');
 });
 
 router.get("/thankyou", function(req, res) {
-  res.sendFile(path.join(__dirname, "pages/thankyou.html"));
+  res.render('thankyou');
 });
 
 module.exports = router;
