@@ -50,7 +50,7 @@
               <% for (var j = 0; j < products[i].prices.length; j++) { %>
               <p class="card-text"><%= products[i].prices[j].size %> 
                 <span class="btn-group" style="float:right;">
-                  <%= products[i].prices[j].price %>
+                  $<%= products[i].prices[j].price %>
                   <button type="button" class="btn btn-sm btn-outline-secondary" style="margin-left: 1em;">-</button>
                   <span style="background-color: whitesmoke; padding-inline: 0.5em;">0</span>
                   <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
