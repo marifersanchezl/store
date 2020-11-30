@@ -170,14 +170,48 @@ products = [
   {
     name: "Mix de Gomitas Enchiladas",
     desc: "gomitas",
-    prices: [],
+    prices: [
+      {
+        size: "Pouch 250g",
+        price: "$50"
+      },
+      {
+        size: "Pouch 450g",
+        price: "$80"
+      },
+      {
+        size: "Jar 240g",
+        price: "$60"
+      },
+      {
+        size: "Jar 460g",
+        price: "$100"
+      }
+    ],
     imgHome: "IMG_3686-ANIMATION.gif",
     img: "IMG_3686-ANIMATION.gif",
   },
   {
     name: "Nuez garapiñada",
     desc: "nuez",
-    prices: [],
+    prices: [
+      {
+        size: "Pouch chico",
+        price: "$80"
+      },
+      {
+        size: "Pouch grande",
+        price: "$150"
+      },
+      {
+        size: "Jar chico",
+        price: "$90"
+      },
+      {
+        size: "Jar grande",
+        price: "$120"
+      }
+    ],
     imgHome: "nuez.jpg",
     img: "nuez.jpg"
   },
