@@ -4,6 +4,30 @@ const router = express.Router();
 
 products = [
   {
+    name: "Gusanitos Enchilados",
+    desc: "gusanos",
+    prices: [
+      {
+        size: "Pouch 250g",
+        price: "$50"
+      },
+      {
+        size: "Pouch 450g",
+        price: "$80"
+      },
+      {
+        size: "Jar 240g",
+        price: "$60"
+      },
+      {
+        size: "Jar 460g",
+        price: "$100"
+      }
+    ],
+    imgHome: "gusanos.jpg",
+    img: "gusanosTop.jpg"
+  },
+  {
     name: "Panditas Enchilados",
     desc: "panditas",
     prices: [
@@ -28,8 +52,8 @@ products = [
     img: "Panditas.jpg"
   },
   {
-    name: "Gusanitos Enchilados",
-    desc: "gusanos",
+    name: "Aros de Manzana Enchilados",
+    desc: "manzana",
     prices: [
       {
         size: "Pouch 250g",
@@ -48,8 +72,80 @@ products = [
         price: "$100"
       }
     ],
-    imgHome: "gusanos.jpg",
-    img: "gusanosTop.jpg"
+    imgHome: "arosM-ANIMATION.gif",
+    img: "arosM.jpg"
+  },
+  {
+    name: "Aros de Durazno Enchilados",
+    desc: "durazno",
+    prices: [
+      {
+        size: "Pouch 250g",
+        price: "$50"
+      },
+      {
+        size: "Pouch 450g",
+        price: "$80"
+      },
+      {
+        size: "Jar 240g",
+        price: "$60"
+      },
+      {
+        size: "Jar 460g",
+        price: "$100"
+      }
+    ],
+    imgHome: "arosD-ANIMATION.gif",
+    img: "arosD.jpg"
+  },
+  {
+    name: "Mix de Gomitas Enchiladas",
+    desc: "gomitas",
+    prices: [
+      {
+        size: "Pouch 250g",
+        price: "$50"
+      },
+      {
+        size: "Pouch 450g",
+        price: "$80"
+      },
+      {
+        size: "Jar 240g",
+        price: "$60"
+      },
+      {
+        size: "Jar 460g",
+        price: "$100"
+      }
+    ],
+    imgHome: "IMG_3686-ANIMATION.gif",
+    img: "IMG_3686-ANIMATION.gif",
+  },
+  {
+    name: "Arandanos Enchilados",
+    desc: "arandanos",
+    prices: [
+      {
+        size: "Pouch 250g",
+        price: "$70"
+      },
+      {
+        size: "Pouch 450g",
+        price: "$100"
+      },
+      {
+        size: "Jar 240g",
+        price: "$80"
+      },
+      {
+        size: "Jar 460g",
+        price: "$120"
+      }
+    ],
+    imgHome: "Arandanos.jpg",
+    img: "Arandanos.jpg"
   },
   {
     name: "Cookie Bites",
@@ -94,102 +190,6 @@ products = [
     ],
     imgHome: "brownie.jpg",
     img: "brownie.jpg"
-  },
-  {
-    name: "Aros de Durazno Enchilados",
-    desc: "durazno",
-    prices: [
-      {
-        size: "Pouch 250g",
-        price: "$50"
-      },
-      {
-        size: "Pouch 450g",
-        price: "$80"
-      },
-      {
-        size: "Jar 240g",
-        price: "$60"
-      },
-      {
-        size: "Jar 460g",
-        price: "$100"
-      }
-    ],
-    imgHome: "arosD-ANIMATION.gif",
-    img: "arosD.jpg"
-  },
-  {
-    name: "Aros de Manzana Enchilados",
-    desc: "manzana",
-    prices: [
-      {
-        size: "Pouch 250g",
-        price: "$50"
-      },
-      {
-        size: "Pouch 450g",
-        price: "$80"
-      },
-      {
-        size: "Jar 240g",
-        price: "$60"
-      },
-      {
-        size: "Jar 460g",
-        price: "$100"
-      }
-    ],
-    imgHome: "arosM-ANIMATION.gif",
-    img: "arosM.jpg"
-  },
-  {
-    name: "Arandanos Enchilados",
-    desc: "arandanos",
-    prices: [
-      {
-        size: "Pouch 250g",
-        price: "$70"
-      },
-      {
-        size: "Pouch 450g",
-        price: "$100"
-      },
-      {
-        size: "Jar 240g",
-        price: "$80"
-      },
-      {
-        size: "Jar 460g",
-        price: "$120"
-      }
-    ],
-    imgHome: "Arandanos.jpg",
-    img: "Arandanos.jpg"
-  },
-  {
-    name: "Mix de Gomitas Enchiladas",
-    desc: "gomitas",
-    prices: [
-      {
-        size: "Pouch 250g",
-        price: "$50"
-      },
-      {
-        size: "Pouch 450g",
-        price: "$80"
-      },
-      {
-        size: "Jar 240g",
-        price: "$60"
-      },
-      {
-        size: "Jar 460g",
-        price: "$100"
-      }
-    ],
-    imgHome: "IMG_3686-ANIMATION.gif",
-    img: "IMG_3686-ANIMATION.gif",
   },
   {
     name: "Nuez garapiñada",

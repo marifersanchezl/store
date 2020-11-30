@@ -48,13 +48,15 @@
             <div class="card-body">
               <p class="card-text"><strong><%= products[i].name %></strong></p>
               <% for (var j = 0; j < products[i].prices.length; j++) { %>
-              <p class="card-text"><%= products[i].prices[j].size %> <span style="float:right;"><%= products[i].prices[j].price %></span></p>
-              <% } %>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
+              <p class="card-text"><%= products[i].prices[j].size %> 
+                <span class="btn-group" style="float:right;">
                   <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
                   <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
-                </div>
+                </span>
+                <span style="float:right; padding-right: 1em;"><%= products[i].prices[j].price %></span>
+              </p>
+              <% } %>
+              <div class="d-flex justify-content-between align-items-center">
                 <small class="text-muted"># update de compra</small>
               </div>
             </div>
@@ -62,9 +64,6 @@
         </div>
         <% } %>
 
-
-
-      
       </div>
     </div>
   </div>
