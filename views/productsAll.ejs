@@ -19,7 +19,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="css/album.css" rel="stylesheet">
+    <link href="/css/album.css" rel="stylesheet">
   </head>
   <body>
     <%- include ("./partials/_navbar") %>
@@ -44,21 +44,19 @@
         <% for (var i = 0; i < products.length; i++) { %>
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="media/<%= products[i].img %>" class="card-img-top" alt="<%= products[i].name %>">
+            <img src="/media/<%= products[i].img %>" class="card-img-top" alt="<%= products[i].name %>">
             <div class="card-body">
               <p class="card-text"><strong><%= products[i].name %></strong></p>
               <% for (var j = 0; j < products[i].prices.length; j++) { %>
               <p class="card-text"><%= products[i].prices[j].size %> 
                 <span class="btn-group" style="float:right;">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">-</button>
+                  <%= products[i].prices[j].price %>
+                  <button type="button" class="btn btn-sm btn-outline-secondary" style="margin-left: 1em;">-</button>
+                  <span style="background-color: whitesmoke; padding-inline: 0.5em;">0</span>
                   <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
                 </span>
-                <span style="float:right; padding-right: 1em;"><%= products[i].prices[j].price %></span>
               </p>
               <% } %>
-              <div class="d-flex justify-content-between align-items-center">
-                <small class="text-muted"># update de compra</small>
-              </div>
             </div>
           </div>
         </div>
