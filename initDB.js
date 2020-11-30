@@ -1,5 +1,3 @@
-require('./app');
-
 const Product = require('./models/product');
 
 products = [
@@ -208,6 +206,10 @@ products = [
   }
 ];
 
-Product.create(products)
-  .then(db => console.log('Saved initial products in DB'))
-  .catch(err => console.log(err));
+async function initProducts() {
+  await Product.create(products)
+    .then(db => console.log('Saved initial products in DB'))
+    .catch(err => console.log(err));
+}
+
+module.exports = initProducts;
