@@ -3,7 +3,7 @@
     <title>Dosabores</title>
 
 <!-- override -->
-<link rel="stylesheet" type="text/css" href="css/custom.css">
+<link rel="stylesheet" type="text/css" href="/css/custom.css">
 
     <style>
       .bd-placeholder-img {
@@ -22,7 +22,7 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link href="css/home.css" rel="stylesheet">
+    <link href="/css/home.css" rel="stylesheet">
   </head>
   <body>
     <%- include ("./partials/_navbar") %>
@@ -49,7 +49,7 @@
       <h2 class="display-5"><%= products[i].name %></h2>
       <p class="lead"><%= products[i].desc %></p>
     </div>
-    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url(../media/<%= products[i].img %>);background-size: cover;background-position:0vh;"></div>
+    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url(/media/<%= products[i].img %>);background-size: cover;background-position:0vh;"></div>
   </div>
 <% } %>
 </div>
