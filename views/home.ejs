@@ -38,7 +38,7 @@
 </div>
 
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-<% for (var i = 0; i < productsHome.length; i++) { %>
+<% for (var i = 0; i < products.length; i++) { %>
   <% if (i % 2 == 0 && i != 0) { %>
 </div>
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
@@ -46,10 +46,10 @@
   
   <div class="bg-light mr-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
     <div class="my-3 p-3">
-      <h2 class="display-5"><%= productsHome[i].name %></h2>
-      <p class="lead"><%= productsHome[i].desc %></p>
+      <h2 class="display-5"><%= products[i].name %></h2>
+      <p class="lead"><%= products[i].desc %></p>
     </div>
-    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url(../media/<%= productsHome[i].img %>);background-size: cover;background-position:0vh;"></div>
+    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url(../media/<%= products[i].img %>);background-size: cover;background-position:0vh;"></div>
   </div>
 <% } %>
 </div>
