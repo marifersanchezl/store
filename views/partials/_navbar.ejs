@@ -1,10 +1,12 @@
 <link href="/css/navbar.css" rel="stylesheet">
 
 <nav class="site-header sticky-top py-1">
-  <div class="container d-flex flex-column flex-md-row justify-content-between" style="max-width: 960px;">
+  <div class="container d-flex flex-row flex-md-row justify-content-between" style="max-width: 960px;">
     <a class="py-2" href="#" aria-label="Product">
       <img src="/media/logoCircle.png" alt="Panditas" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img" viewBox="0 0 24 24" focusable="false"><title>Product</title><circle cx="12" cy="12" r="10"/><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
     </a>
+  
+    <!-- Desktop navbar -->
     <a class="py-2 d-none d-md-inline-block" href="/">Home</a>
     <a class="py-2 d-none d-md-inline-block" href="/productsAll">Products</a>
     <a class="py-2 d-none d-md-inline-block" href="#">About Us</a>
@@ -14,5 +16,40 @@
     <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
     <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
     |-->
+
+
+    <!-- Hamburger navbar -->
+    <!-- Hamburger collapse button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1"
+      aria-controls="navbarSupportedContent1" aria-expanded="false" aria-label="Toggle navigation"><span style="color: whitesmoke;">
+        &#9776;</span></button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent1">
+
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/productsAll">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/checkout">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/login">Login</a>
+        </li>
+      </ul>
+      <!-- Links -->
+
+    </div>
+    <!-- Collapsible content -->
+
+
   </div>
 </nav>
