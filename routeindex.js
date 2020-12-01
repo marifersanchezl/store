@@ -33,4 +33,8 @@ router.get("/thankyou", function(req, res) {
   res.render('thankyou');
 });
 
+router.get("/profile", function(req, res) {
+  res.render('profile');
+});
+
 module.exports = router;
