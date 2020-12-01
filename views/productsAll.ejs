@@ -42,7 +42,7 @@
 
       <div class="row">
         <% for (var i = 0; i < products.length; i++) { %>
-        <div class="col-md-4">
+        <div class="col-md-4" id="<%= products[i].name %>">
           <div class="card mb-4 shadow-sm">
             <img src="/media/<%= products[i].img %>" class="card-img-top" alt="<%= products[i].name %>">
             <div class="card-body">

@@ -48,7 +48,9 @@
     <div class="my-3 p-3">
       <h2 class="display-5"><%= products[i].name %></h2>
     </div>
-    <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url(/media/<%= products[i].img %>);background-size: cover;background-position:0vh;"></div>
+    <a href="/productsAll/#<%= products[i].name %>">
+      <div class="bg-dark shadow-sm mx-auto" style="width: 80%; height: 300px; border-radius: 21px 21px 0 0;background-image: url(/media/<%= products[i].img %>);background-size: cover;background-position:0vh;"></div>
+    </a>
   </div>
 <% } %>
 </div>
