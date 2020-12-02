@@ -2,7 +2,30 @@ const Product = require('./models/product');
 
 products = [
   {
-    name: "Gusanitos Enchilados",
+    name: "X-MAS Edition. Mix de Gomitas Enchiladas",
+    imgHome: "jarXmas.jpg",
+    img: "jarXmas.jpg",
+    prices: [
+      {
+        size: "Pouch 250g",
+        price: 50
+      },
+      {
+        size: "Pouch 450g",
+        price: 80
+      },
+      {
+        size: "Jar 240g",
+        price: 60
+      },
+      {
+        size: "Jar 460g",
+        price: 100
+      }
+    ]
+  },
+  {
+    name: "Gusanitos Enchiladoss",
     imgHome: "gusanos.jpg",
     img: "gusanosTop.jpg",
     prices: [
