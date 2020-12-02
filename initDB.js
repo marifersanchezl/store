@@ -49,8 +49,8 @@ products = [
   },
   {
     name: "Panditas Enchilados",
-    imgHome: "Panditas-ANIMATION.gif",
-    img: "Panditas.jpg",
+    imgHome: "panditas-horiANIMATION.gif",
+    img: "panditas-ANIMATION.gif",
     prices: [
       {
         size: "Pouch 250g",
@@ -118,8 +118,8 @@ products = [
   },
   {
     name: "Mix de Gomitas Enchiladas",
-    imgHome: "IMG_3686-ANIMATION.gif",
-    img: "IMG_3686-ANIMATION.gif",
+    imgHome: "mix.gif",
+    img: "mix.gif",
     prices: [
       {
         size: "Pouch 250g",
