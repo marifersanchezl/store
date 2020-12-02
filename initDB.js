@@ -183,8 +183,8 @@ products = [
   },
   {
     name: "Nuez garapiñada",
-    imgHome: "nuez.jpg",
-    img: "nuez.jpg",
+    imgHome: "nuezSQ.jpg",
+    img: "nuezSQ.jpg",
     prices: [
       {
         size: "Pouch chico",
