@@ -3,8 +3,8 @@ const Product = require('./models/product');
 products = [
   {
     name: "X-MAS Edition. Mix de Gomitas Enchiladas",
-    imgHome: "jarXmas.jpg",
-    img: "jarXmas.jpg",
+    imgHome: "jarXmasSQ.jpg",
+    img: "jarXmasSQ.jpg",
     prices: [
       {
         size: "Pouch 250g",
