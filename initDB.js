@@ -230,6 +230,10 @@ products = [
 ];
 
 async function initProducts() {
+  // clean products collection
+  await Product.deleteMany({});
+
+  // insert products to db
   await Product.create(products)
     .then(db => console.log('Saved initial products in DB'))
     .catch(err => console.log(err));
