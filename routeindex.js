@@ -37,6 +37,10 @@ router.get("/profile", function(req, res) {
   res.render('profile');
 });
 
+router.get("/aboutus", function(req, res) {
+  res.render('aboutus');
+});
+
 router.post('/addToCart', async (req,res) => {
   var data = req.body;
   data.price = Number(data.price);
