@@ -37,4 +37,13 @@ router.get("/profile", function(req, res) {
   res.render('profile');
 });
 
+router.post('/addToCart', async (req,res) => {
+  var data = req.body;
+  data.price = Number(data.price);
+  data.quantity = Number(data.quantity);
+  console.log(data);
+  
+  res.redirect(`/productsAll#${data.name}`);
+});
+
 module.exports = router;

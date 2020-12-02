@@ -31,3 +31,9 @@ footer {
 footer p {
   margin-bottom: .25rem;
 }
+
+.form-quantity-field {
+  border: 1px solid #f5f4f4;
+  max-width: 80px;
+  background-color: #f5f4f4;
+}

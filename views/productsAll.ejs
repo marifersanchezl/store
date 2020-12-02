@@ -48,14 +48,20 @@
             <div class="card-body">
               <p class="card-text"><strong><%= products[i].name %></strong></p>
               <% for (var j = 0; j < products[i].prices.length; j++) { %>
-              <p class="card-text"><%= products[i].prices[j].size %> 
-                <span class="btn-group" style="float:right;">
-                  $<%= products[i].prices[j].price %>
-                  <button type="button" class="btn btn-sm btn-outline-secondary" style="margin-left: 1em;">-</button>
-                  <span style="background-color: whitesmoke; padding-inline: 0.5em;">0</span>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">+</button>
-                </span>
-              </p>
+                <form action="/addToCart" method="POST">
+                  <div class="form-group">
+                    <input type="text" name="name" class="form-control" placeholder="product-name" 
+                      value = "<%= products[i].name %>" hidden>
+                    <input type="text" name="size" class="form-control" placeholder="product-size" 
+                      value = "<%= products[i].prices[j].size %>" hidden>
+                    <input type="number" name="price" class="form-control" placeholder="product-price" 
+                      value = "<%= products[i].prices[j].price %>" hidden>
+                    
+                    <p><%= products[i].prices[j].size %><span style="float: right;">$<%= products[i].prices[j].price %></span></p>
+                    <input class="form-quantity-field" type="number" id="quantity" name="quantity" value="0" min="0">
+                    <button type="submit" class="btn btn-primary" style="float: right;">Add to cart</button>
+                  </div>
+                </form>
               <% } %>
             </div>
           </div>
