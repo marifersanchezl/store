@@ -107,18 +107,18 @@
               Seleccione un estado válido.
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-5 mb-3">
             <label for="city">Ciudad</label>
             <select class="custom-select d-block w-100" id="city" name="city" required>
               <option value="">Elegir...</option>
-              <option <%= user.state == 'Monterrey' ? 'selected' : '' %> >Monterrey</option>
-              <option  <%= user.state == 'San Nicolás de los Garza' ? 'selected' : '' %> >San Nicolás de los Garza</option>
+              <option <%= user.city == 'Monterrey' ? 'selected' : '' %> >Monterrey</option>
+              <option  <%= user.city == 'San Nicolás de los Garza' ? 'selected' : '' %> >San Nicolás de los Garza</option>
             </select>
             <div class="invalid-feedback">
               Seleccione una ciudad válida.
             </div>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-3 mb-3">
             <label for="zip">Código Postal</label>
             <input type="text" class="form-control" id="zip" name="zip" placeholder="Código Postal" value="<%= user.zip %>" required>
             <div class="invalid-feedback">
