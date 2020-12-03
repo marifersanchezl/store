@@ -10,7 +10,7 @@ Web project, e-commerce template
 </table>
 
 ## Demo
-Here is a working live demo :  -- S O O N --
+Here is a working live demo : https://estore123.herokuapp.com/
 
 ## Mobile support
 Compatible with devices of all sizes and all OS's.
