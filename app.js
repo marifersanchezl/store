@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 var initDB = require('./initDB');
 // importing routes
 const indexRoutes = require('./routeindex');
@@ -16,9 +17,7 @@ mongoose.connect('mongodb://localhost/dosabores-store', {
     console.log('db connected');
     // save initial products collection to DB if the DB is empty
     mongoose.connection.db.listCollections().toArray(function (err, collections) {
-      if (collections.length === 0) {
-        initDB();
-      }
+      initDB();
     });
   })
   .catch(err => console.log(err));
@@ -31,6 +30,7 @@ app.set('view engine', 'ejs');
 
 // middlewares
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 
 // routes
