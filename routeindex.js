@@ -53,6 +53,7 @@ router.get("/aboutus", function (req, res) {
 });
 
 router.post('/register', async (req, res) => {
+  console.log("register req.body:");
   console.log(req.body);
   var user = new User(req.body);
   user.password = await user.encryptPassword(user.password);
@@ -63,6 +64,8 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   var { email, password } = req.body;
+  console.log("login req.body:");
+  console.log(req.body);
 
   // 1. Buscar si el usuario existe
   const user = await User.findOne({ email: email });
