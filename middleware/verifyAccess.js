@@ -8,12 +8,17 @@ function verifyToken(req, res, next) {
         res.redirect('/login');
     }
     else {
-        // checar como manejar si el token ya esta expirado
-        // en https://npmjs.com/package/jsonwebtoken
-        jwt.verify(token, config.secret, function(err, decoded){
-            
+        jwt.verify(token, config.secret, function (err, decoded) {
+
             if (err) {
-                console.log(err);
+                // Error handling for expired jwt token
+                if (err.name == "TokenExpiredError") {
+                    console.log("Token for the user has expired");
+                    console.log(err.name + ": " + err.message + "\nexpiredAt: " + err.expiredAt);
+                }
+                else {
+                    console.log(err);
+                }
                 return res.redirect('/login');
             }
             else {
