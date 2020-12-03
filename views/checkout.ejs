@@ -51,18 +51,9 @@
 
         <li class="list-group-item d-flex justify-content-between">
           <span>Total (MXN)</span>
-          <strong><%= total %></strong>
+          <strong>$<%= total %></strong>
         </li>
       </ul>
-
-      <form class="card p-2">
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="Código de Promoción">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-secondary">Usar</button>
-          </div>
-        </div>
-      </form>
     </div>
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Dirección de envío</h4>
@@ -70,7 +61,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">Nombre</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Nombre" value="" required>
+            <input type="text" class="form-control" id="firstName" placeholder="Nombre" value="" required autofocus>
             <div class="invalid-feedback">
               Se requiere un nombre válido.
             </div>
@@ -85,21 +76,8 @@
         </div>
 
         <div class="mb-3">
-          <label for="username">Usuario</label>
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">@</span>
-            </div>
-            <input type="text" class="form-control" id="username" placeholder="Usuario" required>
-            <div class="invalid-feedback" style="width: 100%;">
-              Se requiere un usuario válido.
-            </div>
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="email">Email <span class="text-muted"></span></label>
-          <input type="email" class="form-control" id="email" placeholder="tu@ejemplo.com">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="tu@ejemplo.com" value="<%= userId %>" required>
           <div class="invalid-feedback">
             Por favor ingresa un correo válido.
           </div>
@@ -119,28 +97,28 @@
         </div>
 
         <div class="row">
-          <div class="col-md-5 mb-3">
-            <label for="country">Ciudad</label>
-            <select class="custom-select d-block w-100" id="country" required>
-              <option value="">Elegir...</option>
-              <option>Monterrey</option>
-              <option>San Nicolas de los Garza</option>
-            </select>
-            <div class="invalid-feedback">
-              Seleccione un país válido.
-            </div>
-          </div>
           <div class="col-md-4 mb-3">
             <label for="state">Estado</label>
-            <select class="custom-select d-block w-100" id="state" required>
+            <select class="custom-select d-block w-100" id="country" required>
               <option value="">Elegir...</option>
-              <option>Nuevo Léon</option>
+              <option>Nuevo León</option>
             </select>
             <div class="invalid-feedback">
               Seleccione un estado válido.
             </div>
           </div>
-          <div class="col-md-3 mb-3">
+          <div class="col-md-4 mb-3">
+            <label for="city">Ciudad</label>
+            <select class="custom-select d-block w-100" id="state" required>
+              <option value="">Elegir...</option>
+              <option>Monterrey</option>
+              <option>San Nicolás de los Garza</option>
+            </select>
+            <div class="invalid-feedback">
+              Seleccione una ciudad válida.
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
             <label for="zip">Código Postal</label>
             <input type="text" class="form-control" id="zip" placeholder="Código Postal" required>
             <div class="invalid-feedback">
@@ -148,6 +126,7 @@
             </div>
           </div>
         </div>
+        <hr class="mb-4">
 
         <h4 class="mb-3">Forma de Pago</h4>
 
@@ -159,10 +138,6 @@
           <div class="custom-control custom-radio">
             <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required>
             <label class="custom-control-label" for="debit">Tarjeta de débito</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required>
-            <label class="custom-control-label" for="paypal">PayPal</label>
           </div>
         </div>
         <div class="row">
@@ -183,7 +158,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-3 mb-3">
+          <div class="col-md-5 mb-3">
             <label for="cc-expiration">Fecha de Vencimiento (MM/AA)</label>
             <input type="text" class="form-control" id="cc-expiration" placeholder="(MM/AA)" required>
             <div class="invalid-feedback">
