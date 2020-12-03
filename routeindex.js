@@ -58,8 +58,13 @@ router.get("/thankyou", verify, function (req, res) {
   res.render('thankyou');
 });
 
-router.get("/profile", verify, function (req, res) {
-  res.render('profile');
+router.get("/profile", verify, async function (req, res) {
+  var decodedToken = jwt.decode(req.cookies.token);
+  currentUserEmail = decodedToken.id;
+
+  var user = await User.findOne({ email: currentUserEmail });
+
+  res.render('profile', { user: user });
 });
 
 router.get("/aboutus", verify, function (req, res) {
@@ -100,7 +105,7 @@ router.post('/login', async (req, res) => {
     const valid = await user.validatePassword(password);
 
     if (valid) {
-      console.log("Contraseña inválida");
+      console.log("Contraseña válida");
 
       // CREAR EL TOKEN
 
@@ -122,6 +127,31 @@ router.post('/login', async (req, res) => {
       res.json('invalid');
     }
   }
+});
+
+router.post('/updateProfile', async (req, res) => {
+  var decodedToken = jwt.decode(req.cookies.token);
+  currentUserEmail = decodedToken.id;
+
+  var data = req.body;
+  console.log('data recibida');
+  console.log(data);
+
+  var user = await User.findOne({ email: currentUserEmail });
+  console.log("user de db");
+  console.log(user);
+
+  await User.updateOne({ email: currentUserEmail }, {
+    firstName: data.firstName,
+    lastName: data.lastName,
+    address: data.address,
+    address2: data.address2,
+    state: data.state,
+    city: data.city,
+    zip: data.zip
+  });
+
+  res.redirect('/profile');
 });
 
 router.post('/addToCart', async (req, res) => {
@@ -217,7 +247,7 @@ router.post('/checkout', async (req, res) => {
       console.log('Email sent: ' + info.response);
     }
   });
-  
+
   await Cart.deleteOne({ userId: currentUserEmail });
   res.redirect("/thankyou");
 });

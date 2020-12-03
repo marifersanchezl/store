@@ -4,7 +4,14 @@ const bcrypt = require("bcrypt");
 
 const UserSchema = Schema( {
     email: String,
-    password: String
+    password: String,
+    firstName: String,
+    lastName: String,
+    address: String,
+    address2: String,
+    state: String,
+    city: String,
+    zip: String
 });
 
 // el .methods ya esta definido para poner ahi dentro metodos que definamos
