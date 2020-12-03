@@ -9,7 +9,7 @@ const indexRoutes = require('./routeindex');
 const app = express();
 
 // connection to db
-mongoose.connect('mongodb://localhost/dosabores-store', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dosabores-store', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
