@@ -38,11 +38,12 @@ router.get("/checkout", verify, async function (req, res) {
   var decodedToken = jwt.decode(req.cookies.token);
   currentUserEmail = decodedToken.id;
 
+  var user = await User.findOne({ email: currentUserEmail });
   var cart = await Cart.findOne({ userId: currentUserEmail });
   console.log(cart);
 
   if (cart == null) {
-    res.render('checkout', { products: [], userId: currentUserEmail, total: 0 });
+    res.render('checkout', { products: [], user: user, total: 0 });
   }
   else {
     var totalSum = 0;
@@ -50,7 +51,7 @@ router.get("/checkout", verify, async function (req, res) {
       totalSum += cart.products[i].price * cart.products[i].quantity;
     }
 
-    res.render('checkout', { products: cart.products, userId: cart.userId, total: totalSum });
+    res.render('checkout', { products: cart.products, user: user, total: totalSum });
   }
 });
 

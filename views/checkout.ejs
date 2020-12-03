@@ -61,14 +61,14 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">Nombre</label>
-            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Juan" value="" required autofocus>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Juan" value="<%= user.firstName %>" required autofocus>
             <div class="invalid-feedback">
               Se requiere un nombre válido.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Apellido</label>
-            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Garza" value="" required>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Garza" value="<%= user.lastName %>" required>
             <div class="invalid-feedback">
               Se requiere un apellido válido.
             </div>
@@ -77,7 +77,7 @@
 
         <div class="mb-3">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" name="email" placeholder="tu@ejemplo.com" value="<%= userId %>" required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="tu@ejemplo.com" value="<%= user.email %>" required>
           <div class="invalid-feedback">
             Por favor ingresa un correo válido.
           </div>
@@ -85,7 +85,7 @@
 
         <div class="mb-3">
           <label for="address">Calle y número de casa</label>
-          <input type="text" class="form-control" id="address" name="address" placeholder="Calle del Sabor 143" required>
+          <input type="text" class="form-control" id="address" name="address" placeholder="Calle del Sabor 143" value="<%= user.address %>" required>
           <div class="invalid-feedback">
             Por favor agrega una dirección válida.
           </div>
@@ -93,7 +93,7 @@
 
         <div class="mb-3">
           <label for="address2">Apartamento, local, etc. <span class="text-muted">(Opcional)</span></label>
-          <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartamento o Suite">
+          <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartamento o Suite" value="<%= user.address2 %>">
         </div>
 
         <div class="row">
@@ -101,7 +101,7 @@
             <label for="state">Estado</label>
             <select class="custom-select d-block w-100" id="state" name="state" required>
               <option value="">Elegir...</option>
-              <option>Nuevo León</option>
+              <option <%= user.state == 'Nuevo León' ? 'selected' : '' %> >Nuevo León</option>
             </select>
             <div class="invalid-feedback">
               Seleccione un estado válido.
@@ -111,8 +111,8 @@
             <label for="city">Ciudad</label>
             <select class="custom-select d-block w-100" id="city" name="city" required>
               <option value="">Elegir...</option>
-              <option>Monterrey</option>
-              <option>San Nicolás de los Garza</option>
+              <option <%= user.state == 'Monterrey' ? 'selected' : '' %> >Monterrey</option>
+              <option  <%= user.state == 'San Nicolás de los Garza' ? 'selected' : '' %> >San Nicolás de los Garza</option>
             </select>
             <div class="invalid-feedback">
               Seleccione una ciudad válida.
@@ -120,7 +120,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label for="zip">Código Postal</label>
-            <input type="text" class="form-control" id="zip" name="zip" placeholder="Código Postal" required>
+            <input type="text" class="form-control" id="zip" name="zip" placeholder="Código Postal" value="<%= user.zip %>" required>
             <div class="invalid-feedback">
               Se requiere un código postal válido.
             </div>
@@ -174,7 +174,7 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit" <%= products.length == 0 ? "disabled" : "" %>>Realizar Pago</button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" <%= products.length == 0 ? 'disabled' : '' %>>Realizar Pago</button>
       </form>
     </div>
   </div>
