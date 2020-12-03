@@ -61,14 +61,14 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">Nombre</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Nombre" value="" required autofocus>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Nombre" value="" required autofocus>
             <div class="invalid-feedback">
               Se requiere un nombre válido.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Apellido</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Apellido" value="" required>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Apellido" value="" required>
             <div class="invalid-feedback">
               Se requiere un apellido válido.
             </div>
@@ -77,7 +77,7 @@
 
         <div class="mb-3">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="tu@ejemplo.com" value="<%= userId %>" required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="tu@ejemplo.com" value="<%= userId %>" required>
           <div class="invalid-feedback">
             Por favor ingresa un correo válido.
           </div>
@@ -85,7 +85,7 @@
 
         <div class="mb-3">
           <label for="address">Calle y número de casa</label>
-          <input type="text" class="form-control" id="address" placeholder="1234 Main St" required>
+          <input type="text" class="form-control" id="address" name="address" placeholder="1234 Main St" required>
           <div class="invalid-feedback">
             Por favor agrega una dirección válida.
           </div>
@@ -93,13 +93,13 @@
 
         <div class="mb-3">
           <label for="address2">Apartamento, local, etc. <span class="text-muted">(Opcional)</span></label>
-          <input type="text" class="form-control" id="address2" placeholder="Apartamento o Suite">
+          <input type="text" class="form-control" id="address2" name="address2" placeholder="Apartamento o Suite">
         </div>
 
         <div class="row">
           <div class="col-md-4 mb-3">
             <label for="state">Estado</label>
-            <select class="custom-select d-block w-100" id="country" required>
+            <select class="custom-select d-block w-100" id="state" name="state" required>
               <option value="">Elegir...</option>
               <option>Nuevo León</option>
             </select>
@@ -109,7 +109,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label for="city">Ciudad</label>
-            <select class="custom-select d-block w-100" id="state" required>
+            <select class="custom-select d-block w-100" id="city" name="city" required>
               <option value="">Elegir...</option>
               <option>Monterrey</option>
               <option>San Nicolás de los Garza</option>
@@ -120,7 +120,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label for="zip">Código Postal</label>
-            <input type="text" class="form-control" id="zip" placeholder="Código Postal" required>
+            <input type="text" class="form-control" id="zip" name="zip" placeholder="Código Postal" required>
             <div class="invalid-feedback">
               Se requiere un código postal válido.
             </div>
@@ -143,7 +143,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="cc-name">Nombre en tarjeta</label>
-            <input type="text" class="form-control" id="cc-name" placeholder="" required>
+            <input type="text" class="form-control" id="cc-name" name="cc-name" placeholder="" required>
             <small class="text-muted">Nombre completo como se muestra en la tarjeta</small>
             <div class="invalid-feedback">
               Se requiere el nombre de la tarjeta.
@@ -151,7 +151,7 @@
           </div>
           <div class="col-md-6 mb-3">
             <label for="cc-number">Número de tarjeta de crédito </label>
-            <input type="text" class="form-control" id="cc-number" placeholder="" required>
+            <input type="text" class="form-control" id="cc-number" name="cc-number" placeholder="" required>
             <div class="invalid-feedback">
               Se requiere el número de la tarjeta.
             </div>
@@ -160,14 +160,14 @@
         <div class="row">
           <div class="col-md-5 mb-3">
             <label for="cc-expiration">Fecha de Vencimiento (MM/AA)</label>
-            <input type="text" class="form-control" id="cc-expiration" placeholder="(MM/AA)" required>
+            <input type="text" class="form-control" id="cc-expiration" name="cc-expiration" placeholder="(MM/AA)" required>
             <div class="invalid-feedback">
               Fecha de vencimiento requerida.
             </div>
           </div>
           <div class="col-md-3 mb-3">
             <label for="cc-cvv">CVV</label>
-            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+            <input type="text" class="form-control" id="cc-cvv" name="cc-cvv" placeholder="" required>
             <div class="invalid-feedback">
               Código de seguridad requerido.
             </div>

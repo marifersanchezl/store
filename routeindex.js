@@ -163,17 +163,23 @@ router.post('/addToCart', async (req, res) => {
 router.post('/checkout', async (req, res) => {
   var decodedToken = jwt.decode(req.cookies.token);
   currentUserEmail = decodedToken.id;
-
   console.log(currentUserEmail);
+
+  var data = req.body;
+  console.log(data);
 
   var cart = await Cart.findOne({ userId: currentUserEmail });
   var total = 0;
   var products = "";
   for (var i = 0; i < cart.products.length; i++) {
     total += cart.products[i].price * cart.products[i].quantity;
-    products += "Producto: " + cart.products[i].name + ", Precio: $" + cart.products[i].price + " MXN, Cantidad: " + cart.products[i].quantity + "\n";
+    products += `Producto: ${cart.products[i].name} - ${cart.products[i].size}, Precio: $${cart.products[i].price} MXN, Cantidad: ${cart.products[i].quantity}<br>`;
   }
   console.log(total);
+
+  var addressInfo = `<b>Enviar a:</b><br>${data.firstName} ${data.lastName}<br>`;
+  addressInfo += `${data.address}${data.address2 != "" ? ", " + data.address2 : ""}<br>`;
+  addressInfo += `${data.city}, ${data.state} ${data.zip}`;
 
   var transporter = nodemailer.createTransport({
     service: 'outlook',
@@ -189,9 +195,10 @@ router.post('/checkout', async (req, res) => {
 
   var mailOptions = {
     from: '"Tienda Dosabores " <holadosabores@outlook.com>',
-    to: currentUserEmail,
-    subject: 'Tu orden en DosSabores',
-    text: `Resumen de tu orden:\n${products} \n Total: $${total} MXN`
+    to: data.email,
+    subject: 'Tu orden en Dosabores',
+    text: `Resumen de tu orden:\n${products} \n Total: $${total} MXN\n\n${addressInfo}`,
+    html: `<b>Resumen de tu orden:</b><br>${products} <br> Total: $${total} MXN<br><br>${addressInfo}`
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
