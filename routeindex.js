@@ -67,13 +67,22 @@ router.get("/aboutus", verify, function (req, res) {
 });
 
 router.post('/register', async (req, res) => {
+  var { email, password } = req.body;
   console.log("register req.body:");
   console.log(req.body);
-  var user = new User(req.body);
-  user.password = await user.encryptPassword(user.password);
-  await user.save();
 
-  res.redirect('/');
+  // 1. Buscar si el usuario existe
+  var user = await User.findOne({ email: email });
+
+  if (user) {
+    return res.status(202).send("Este correo ya está asociado a una cuenta.");
+  } else {
+    user = new User(req.body);
+    user.password = await user.encryptPassword(user.password);
+    await user.save();
+
+    res.redirect('/');
+  }
 });
 
 router.post('/login', async (req, res) => {
@@ -85,13 +94,13 @@ router.post('/login', async (req, res) => {
   const user = await User.findOne({ email: email });
 
   if (!user) {
-    return res.status(404).send("The user does not exist");
+    return res.status(404).send("El usuario no existe");
   }
   else {
     const valid = await user.validatePassword(password);
 
     if (valid) {
-      console.log("Password is valid");
+      console.log("Contraseña inválida");
 
       // CREAR EL TOKEN
 
@@ -109,7 +118,7 @@ router.post('/login', async (req, res) => {
       res.redirect("/");
     }
     else {
-      console.log("Password is invalid");
+      console.log("Contraseña inválida");
       res.json('invalid');
     }
   }
