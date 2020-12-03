@@ -17,9 +17,7 @@ mongoose.connect('mongodb://localhost/dosabores-store', {
     console.log('db connected');
     // save initial products collection to DB if the DB is empty
     mongoose.connection.db.listCollections().toArray(function (err, collections) {
-      if (collections.length === 0) {
-        initDB();
-      }
+      initDB();
     });
   })
   .catch(err => console.log(err));
