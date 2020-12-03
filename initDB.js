@@ -25,7 +25,7 @@ products = [
     ]
   },
   {
-    name: "Gusanitos Enchiladoss",
+    name: "Gusanitos Enchilados",
     imgHome: "gusanos.jpg",
     img: "gusanosTop.jpg",
     prices: [
@@ -50,7 +50,7 @@ products = [
   {
     name: "Panditas Enchilados",
     imgHome: "panditas-horiANIMATION.gif",
-    img: "panditas-ANIMATION.gif",
+    img: "panditas-horiANIMATION.gif",
     prices: [
       {
         size: "Pouch 250g",
