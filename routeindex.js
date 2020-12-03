@@ -27,28 +27,40 @@ router.get("/register", function (req, res) {
   res.render('register');
 });
 
-router.get("/product", function (req, res) {
-  res.render('product');
-});
-
-router.get("/productsAll", async function (req, res) {
+router.get("/productsAll", verify, async function (req, res) {
   var products = await Product.find({}).sort({ _id: 1 });
   res.render('productsAll', { products });
 });
 
-router.get("/checkout", function (req, res) {
-  res.render('checkout');
+router.get("/checkout", verify, async function (req, res) {
+  var decodedToken = jwt.decode(req.cookies.token);
+  currentUserEmail = decodedToken.id;
+
+  var cart = await Cart.findOne({ userId: currentUserEmail });
+  console.log(cart);
+
+  if (cart == null) {
+    res.render('checkout', { products: [], userId: currentUserEmail, total: 0 });
+  }
+  else {
+    var totalSum = 0;
+    for (var i = 0; i < cart.products.length; i++) {    
+      totalSum += cart.products[i].price * cart.products[i].quantity;
+    }
+    
+    res.render('checkout', { products: cart.products, userId: cart.userId, total: totalSum });
+  }
 });
 
-router.get("/thankyou", function (req, res) {
+router.get("/thankyou", verify, function (req, res) {
   res.render('thankyou');
 });
 
-router.get("/profile", function (req, res) {
+router.get("/profile", verify, function (req, res) {
   res.render('profile');
 });
 
-router.get("/aboutus", function (req, res) {
+router.get("/aboutus", verify, function (req, res) {
   res.render('aboutus');
 });
 
@@ -102,18 +114,20 @@ router.post('/login', async (req, res) => {
 });
 
 router.post('/addToCart', async (req, res) => {
+  var decodedToken = jwt.decode(req.cookies.token);
+  currentUserEmail = decodedToken.id;
+  
   var data = req.body;
   data.price = Number(data.price);
   data.quantity = Number(data.quantity);
   console.log(data);
 
-  var currentUserId = "dummyId";
-  var cart = await Cart.findOne({ userId: currentUserId });
+  var cart = await Cart.findOne({ userId: currentUserEmail });
 
   if (cart == null) {
     // Add new cart with products if user does not have a cart already
     var newCartData = {
-      userId: currentUserId,
+      userId: currentUserEmail,
       products: [data]
     }
 
