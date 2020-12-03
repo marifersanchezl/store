@@ -188,7 +188,7 @@ router.post('/checkout', async (req, res) => {
   });
 
   var mailOptions = {
-    from: 'holadosabores@outlook.com',
+    from: '"Tienda Dosabores " <holadosabores@outlook.com>',
     to: currentUserEmail,
     subject: 'Tu orden en DosSabores',
     text: `Resumen de tu orden:\n${products} \n Total: $${total} MXN`
