@@ -174,7 +174,7 @@
           </div>
         </div>
         <hr class="mb-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit"><a class="text-muted" href="/thankyou"></a>Realizar Pago</a></button>
+        <button class="btn btn-primary btn-lg btn-block" type="submit" <%= products.length == 0 ? "disabled" : "" %>>Realizar Pago</button>
       </form>
     </div>
   </div>

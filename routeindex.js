@@ -208,7 +208,8 @@ router.post('/checkout', async (req, res) => {
       console.log('Email sent: ' + info.response);
     }
   });
-
+  
+  await Cart.deleteOne({ userId: currentUserEmail });
   res.redirect("/thankyou");
 });
 
