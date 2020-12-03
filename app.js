@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser');
 var initDB = require('./initDB');
 // importing routes
 const indexRoutes = require('./routeindex');
-
+const uri = process.env.MONGODB_URI;
 const app = express();
 
 // connection to db
