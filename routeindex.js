@@ -8,6 +8,8 @@ const User = require('./models/user');
 const verify = require('./middleware/verifyAccess');
 const jwt = require('jsonwebtoken');
 const config = require('./config');
+const nodemailer = require('nodemailer');
+const { getMaxListeners } = require('./models/product');
 
 router.get('/logOut', async (req, res) => {
   res.clearCookie("token");
@@ -44,10 +46,10 @@ router.get("/checkout", verify, async function (req, res) {
   }
   else {
     var totalSum = 0;
-    for (var i = 0; i < cart.products.length; i++) {    
+    for (var i = 0; i < cart.products.length; i++) {
       totalSum += cart.products[i].price * cart.products[i].quantity;
     }
-    
+
     res.render('checkout', { products: cart.products, userId: cart.userId, total: totalSum });
   }
 });
@@ -116,7 +118,7 @@ router.post('/login', async (req, res) => {
 router.post('/addToCart', async (req, res) => {
   var decodedToken = jwt.decode(req.cookies.token);
   currentUserEmail = decodedToken.id;
-  
+
   var data = req.body;
   data.price = Number(data.price);
   data.quantity = Number(data.quantity);
@@ -156,6 +158,51 @@ router.post('/addToCart', async (req, res) => {
   }
 
   res.redirect(`/productsAll#${data.name}`);
+});
+
+router.post('/checkout', async (req, res) => {
+  var decodedToken = jwt.decode(req.cookies.token);
+  currentUserEmail = decodedToken.id;
+
+  console.log(currentUserEmail);
+
+  var cart = await Cart.findOne({ userId: currentUserEmail });
+  var total = 0;
+  var products = "";
+  for (var i = 0; i < cart.products.length; i++) {
+    total += cart.products[i].price * cart.products[i].quantity;
+    products += "Producto: " + cart.products[i].name + ", Precio: $" + cart.products[i].price + " MXN, Cantidad: " + cart.products[i].quantity + "\n";
+  }
+  console.log(total);
+
+  var transporter = nodemailer.createTransport({
+    service: 'outlook',
+    port: 587,
+    auth: {
+      user: 'holadosabores@outlook.com',
+      pass: 'aranaW3b'
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+
+  var mailOptions = {
+    from: '"Tienda Dosabores " <holadosabores@outlook.com>',
+    to: currentUserEmail,
+    subject: 'Tu orden en DosSabores',
+    text: `Resumen de tu orden:\n${products} \n Total: $${total} MXN`
+  };
+
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+
+  res.redirect("/thankyou");
 });
 
 module.exports = router;
