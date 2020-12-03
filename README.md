@@ -12,29 +12,14 @@ Web project, e-commerce template
 ## Demo
 Here is a working live demo :  -- S O O N --
 
-## Site
-
-### Home Page
--- S O O N --
-
-### Products
--- S O O N --
-
-### Shopping Cart
--- S O O N --
-
-### Thank you for your purchase
--- S O O N --
-
-### About us
--- S O O N --
-
 ## Mobile support
 Compatible with devices of all sizes and all OS's.
 
 ## Built with 
 
-- [jQuery - Ajax](http://www.w3schools.com/jquery/jquery_ref_ajax.asp) - jQuery simplifies HTML document traversing, event handling, animating, and Ajax interactions for rapid web development.
+- [Node.js](https://nodejs.org/en/) - A JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+- [EJS](https://ejs.co/) - A simple templating language that lets you generate HTML markup with plain JavaScript. 
 
 - [Bootstrap](http://getbootstrap.com/) - Extensive list of components and  Bundled Javascript plugins.
 
