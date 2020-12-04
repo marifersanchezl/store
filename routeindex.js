@@ -40,6 +40,7 @@ router.get("/checkout", verify, async function (req, res) {
 
   var user = await User.findOne({ email: currentUserEmail });
   var cart = await Cart.findOne({ userId: currentUserEmail });
+  console.log("Cart for " + currentUserEmail);
   console.log(cart);
 
   if (cart == null) {
@@ -198,6 +199,23 @@ router.post('/addToCart', async (req, res) => {
   }
 
   res.redirect(`/productsAll#${data.name}`);
+});
+
+router.post('/deleteFromCart', async (req, res) => {
+  data = req.body;
+  console.log("Item to be deleted from cart:");
+  console.log(data);
+
+  var cart = await Cart.findOne({ userId: currentUserEmail });
+
+  var newProducts = cart.products.filter(element => element.name != data.name || element.size != data.size);
+  console.log(newProducts);
+
+  await Cart.updateOne({ userId: currentUserEmail }, {
+    products: newProducts
+  });
+
+  res.redirect('checkout');
 });
 
 router.post('/checkout', async (req, res) => {
