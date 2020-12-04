@@ -165,6 +165,11 @@ router.post('/addToCart', async (req, res) => {
   data.quantity = Number(data.quantity);
   console.log(data);
 
+  if (data.quantity <= 0) {
+    res.redirect(`/productsAll#${data.name}`);
+    return;
+  }
+
   var cart = await Cart.findOne({ userId: currentUserEmail });
 
   if (cart == null) {
